@@ -11,3 +11,5 @@
 6. If it asks for permissions make sure to enable them. 
 
 (Click allow and then it will take you to a list of apps. Look for terminal and make sure that you tick it, then enter password or use Touch ID, it will ask you to quit and reopen but this is not required so click Later.)
+
+IMPORTANT: DO NOT FORGET TO INSTALL PYTHON OR THIS WILL NOT WORK. TO INSTALL PYTHON GO TO https://www.python.org/ftp/python/3.14.3/python-3.14.3-macos11.pkg AND OPEN THE .PKG FILE AND FOLLOW ALL THE STEPS UNTIL YOU SEE THE GREEN CHECKMARK.
