@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Download Page</title>
+    <style>
+        /* Full page styling */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: #1e90ff; /* Blue background */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Container for the header text */
+        .header-container {
+            margin-top: 50px;
+            background-color: rgba(0,0,0,0.6); /* dark behind text */
+            padding: 20px 40px;
+            border-radius: 12px;
+        }
+
+        /* Big glowing green text */
+        .header-text {
+            font-size: 64px;
+            color: #00ff00;
+            text-align: center;
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+        }
+
+        /* Download button */
+        .download-btn {
+            margin-top: 40px;
+            padding: 15px 40px;
+            font-size: 24px;
+            color: white;
+            background-color: #28a745; /* green button */
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 0 15px #28a745;
+            transition: 0.3s;
+        }
+
+        .download-btn:hover {
+            background-color: #1e7e34;
+            box-shadow: 0 0 25px #28a745;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <div class="header-text">YOUR TEXT HERE</div>
+    </div>
+
+    <button class="download-btn" onclick="window.location.href='yourfile.zip'">
+        Download
+    </button>
+
+</body>
+</html>
