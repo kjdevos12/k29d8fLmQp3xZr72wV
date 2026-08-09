@@ -1,6 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Free App Store</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; text-align: center; padding: 40px 20px; background: #f5f5f7; color: #1d1d1f; }
+        .store-container { max-width: 400px; margin: 0 auto; }
+        .app-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); margin-top: 20px; }
+        .install-btn { display: inline-block; background: #007aff; color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; margin-top: 15px; font-weight: 600; font-size: 16px; transition: background 0.2s; }
+        .install-btn:hover { background: #0056b3; }
+        p { color: #86868b; font-size: 14px; }
+    </style>
+</head>
 <body>
-<pre>loadstring(game:HttpGet("https://raw.githubusercontent.com/zenss555a/script/refs/heads/main/Prison-Life.lua", true))()</pre>
+    <div class="store-container">
+        <h1>My iOS App Store</h1>
+        <p>Tap below to trigger the direct wireless device installation.</p>
+        
+        <div class="app-card">
+            <h3>Custom Modded App</h3>
+            <p>Version 1.0</p>
+            <!-- REPLACEMENT NEEDED BELOW: Swap out 'URL_TO_YOUR_UPLOADED_MANIFEST_PLIST' with the actual link where you host the manifest.plist file above -->
+            <a class="install-btn" href="itms-services://?action=download-manifest&url=URL_TO_YOUR_UPLOADED_MANIFEST_PLIST">Install App</a>
+        </div>
+    </div>
 </body>
 </html>
