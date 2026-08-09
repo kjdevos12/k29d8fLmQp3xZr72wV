@@ -1,29 +1,228 @@
+# Game Library — Website
+
+Save this as `index.html`:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Free App Store</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; text-align: center; padding: 40px 20px; background: #f5f5f7; color: #1d1d1f; }
-        .store-container { max-width: 400px; margin: 0 auto; }
-        .app-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); margin-top: 20px; }
-        .install-btn { display: inline-block; background: #007aff; color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; margin-top: 15px; font-weight: 600; font-size: 16px; transition: background 0.2s; }
-        .install-btn:hover { background: #0056b3; }
-        p { color: #86868b; font-size: 14px; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Game Library</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+                   "Segoe UI", sans-serif;
+      background: #0b0b0f;
+      color: white;
+    }
+
+    header {
+      padding: 22px;
+      background: #15151b;
+      border-bottom: 1px solid #292932;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header {
+      max-width: 900px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .search {
+      max-width: 900px;
+      margin: 20px auto 0;
+    }
+
+    .search input {
+      width: 100%;
+      padding: 14px 18px;
+      border: none;
+      border-radius: 14px;
+      background: #24242d;
+      color: white;
+      font-size: 16px;
+      outline: none;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .game {
+      background: #17171e;
+      border: 1px solid #292932;
+      border-radius: 20px;
+      padding: 18px;
+      margin-bottom: 18px;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 18px;
+      object-fit: cover;
+      background: #292932;
+    }
+
+    .info {
+      flex: 1;
+    }
+
+    .info h2 {
+      margin: 0 0 6px;
+      font-size: 20px;
+    }
+
+    .info p {
+      margin: 4px 0;
+      color: #9d9da8;
+      font-size: 14px;
+    }
+
+    .install {
+      display: inline-block;
+      padding: 11px 18px;
+      border-radius: 12px;
+      background: #007aff;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .install:hover {
+      background: #1687ff;
+    }
+
+    @media (max-width: 600px) {
+      .game {
+        align-items: flex-start;
+      }
+
+      .install {
+        padding: 9px 13px;
+      }
+
+      .icon {
+        width: 65px;
+        height: 65px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="store-container">
-        <h1>My iOS App Store</h1>
-        <p>Tap below to trigger the direct wireless device installation.</p>
-        
-        <div class="app-card">
-            <h3>Custom Modded App</h3>
-            <p>Version 1.0</p>
-            <!-- REPLACEMENT NEEDED BELOW: Swap out 'URL_TO_YOUR_UPLOADED_MANIFEST_PLIST' with the actual link where you host the manifest.plist file above -->
-            <a class="install-btn" href="itms-services://?action=download-manifest&url=URL_TO_YOUR_UPLOADED_MANIFEST_PLIST">Install App</a>
-        </div>
+
+<header>
+  <div class="header">
+    <h1>🎮 My Game Library</h1>
+  </div>
+
+  <div class="search">
+    <input
+      type="search"
+      id="search"
+      placeholder="Search games..."
+      oninput="searchGames()"
+    >
+  </div>
+</header>
+
+<main id="games">
+
+  <!-- GAME 1 -->
+  <div class="game" data-name="My Game">
+
+    <img
+      class="icon"
+      src="game-icon.png"
+      alt="Game icon"
+    >
+
+    <div class="info">
+      <h2>My Game</h2>
+      <p>Modified Edition</p>
+      <p>Version 1.0</p>
     </div>
+
+    <!-- Replace this with your legitimate distribution/TestFlight link -->
+    <a
+      class="install"
+      href="YOUR_INSTALL_LINK"
+    >
+      Install
+    </a>
+
+  </div>
+
+</main>
+
+<script>
+function searchGames() {
+  const query =
+    document.getElementById("search").value.toLowerCase();
+
+  document.querySelectorAll(".game").forEach(game => {
+    const name = game.dataset.name.toLowerCase();
+
+    game.style.display =
+      name.includes(query) ? "flex" : "none";
+  });
+}
+</script>
+
 </body>
 </html>
+```
+
+### To customize it
+
+Put these files in the same folder:
+
+```text
+my-site/
+├── index.html
+└── game-icon.png
+```
+
+Then change:
+
+```html
+<h2>My Game</h2>
+```
+
+to your friend's game's name, and replace:
+
+```html
+YOUR_INSTALL_LINK
+```
+
+with the **Apple-supported installation/TestFlight link** for the game.
+
+You can add more games by copying the entire `<div class="game">...</div>` section.
+
+### Important
+
+Don't upload your private signing certificates, provisioning profiles, or private keys to the website. Only distribute the actual app through the appropriate Apple-supported signing/distribution method.
